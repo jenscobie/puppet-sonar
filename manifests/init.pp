@@ -1,8 +1,8 @@
 class sonar($version) {
 
   $temp_dir = '/tmp'
-  $target_dir = '/usr/local'
   $distribution = "sonarqube-$version"
+  $target_dir = '/usr/local'
   $actual_dir = "$target_dir/$distribution"
   $linked_dir = "/Library/sonar"
   $archive = "$distribution.zip"
@@ -22,7 +22,7 @@ class sonar($version) {
 
   exec { 'unpack-archive':
     command => "cd $target_dir ; unzip $archive",
-    creates => "$target_dir/$distribution/bin",
+    creates => "$actual_dir/bin",
     notify => File["$linked_dir"]
   }
 
