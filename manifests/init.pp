@@ -21,7 +21,7 @@ class sonar($version) {
   }
 
   exec { 'unpack-sonar-archive':
-    command => "cd $target_dir ; unzip $archive",
+    command => "cd $target_dir ; unzip $temp_dir/$archive",
     creates => "$actual_dir/bin",
     notify => File["$linked_dir"]
   }
