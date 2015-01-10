@@ -8,7 +8,7 @@ class sonar($version) {
   $archive = "$distribution.zip"
   $download_url = "http://dist.sonar.codehaus.org/sonarqube-$version.zip"
 
-  file { "$target_dir":
+  file { "$actual_dir":
     ensure => "directory",
     recurse => true,
     notify => Exec['download-sonar']
