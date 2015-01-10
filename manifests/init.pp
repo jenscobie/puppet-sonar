@@ -17,10 +17,10 @@ class sonar($version) {
   exec { "download-sonar":
     command => "wget -q --timestamping -P $temp_dir $download_url",
     creates => "$temp_dir/$archive",
-    notify => Exec['unpack-archive']
+    notify => Exec['unpack-sonar-archive']
   }
 
-  exec { 'unpack-archive':
+  exec { 'unpack-sonar-archive':
     command => "cd $target_dir ; unzip $archive",
     creates => "$actual_dir/bin",
     notify => File["$linked_dir"]
