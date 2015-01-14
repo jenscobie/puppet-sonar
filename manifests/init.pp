@@ -30,4 +30,8 @@ class sonar($version) {
     ensure => 'link',
     target => "$actual_dir",
   }
+
+  boxen::env_script { 'sonar-home':
+    content => "export SONAR_HOME=$linked_dir",
+  }
 }
