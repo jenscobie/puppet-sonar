@@ -31,7 +31,7 @@ class sonar($version) {
     target => "$actual_dir",
   }
 
-  boxen::env_script { 'sonar-home':
-    content => "export SONAR_HOME=$linked_dir/bin/macosx-universal-64",
+  boxen::env_script { 'sonar-script-directory':
+    content => "export SONAR_SCRIPT_DIRECTORY=$linked_dir/bin/macosx-universal-64",
   }
 }
